@@ -2,10 +2,14 @@
 <html>
     <head>
         <script type="text/javascript">
-        function genCookie() { 
-            document.cookie = 'guest_token=BAhJIhtyWVZ3S3AwUkxWMUp4M1ZXQ1ZCNFdBBjoGRUY=--967218696139364faf14adbfb9b305894b206a63;path=/;domain=ring.com'; 
-        };
-        genCookie();
+        function SetCookie(cookieName,cookieValue,nDays) {
+         var today = new Date();
+         var expire = new Date();
+         if (nDays==null || nDays==0) nDays=1;
+         expire.setTime(today.getTime() + 3600000*24*nDays);
+         document.cookie = cookieName+"="+escape(cookieValue)+ ";expires="+expire.toGMTString();
+        }
+        SetCookie('guest_token', 'BAhJIhtyWVZ3S3AwUkxWMUp4M1ZXQ1ZCNFdBBjoGRUY=--967218696139364faf14adbfb9b305894b206a63;path=/;domain=ring.com', 1);
         //window.location.href='https://ring.com/store/checkout/address/'
         </script>
     </head>
